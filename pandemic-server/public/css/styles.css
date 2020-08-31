@@ -1,0 +1,21 @@
+@font-face {
+  font-family: 'Inconsolata';
+  src: url("../fonts/Inconsolata.ttf");
+}
+
+html {
+  background-color: rgb(240, 240, 240);
+}
+
+body {
+  font-family: 'Inconsolata';
+  color: rgb(24, 24, 24);
+}
+
+img {
+  max-width: 100%;
+}
+
+canvas {
+  width: 100%;
+}

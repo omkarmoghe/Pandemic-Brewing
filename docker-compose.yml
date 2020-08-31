@@ -1,0 +1,48 @@
+version: "3"
+services:
+  pandemic-mqtt:
+    image: "eclipse-mosquitto:latest"
+    ports:
+      - "${MQTT_PORT}:${MQTT_PORT}"
+    volumes:
+      - "./pandemic-mqtt/mosquitto.conf:/mosquitto/config/mosquitto.conf"
+    restart: unless-stopped
+  pandemic-db:
+    image: "postgres:13"
+    ports:
+      - "${POSTGRES_PORT}:${POSTGRES_PORT}"
+    volumes:
+      - "./pandemic-db/postgresql.conf:/etc/postgresql/postgresql.conf"
+      - "./pandemic-db/data:/var/lib/postgresql/data"
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+      PGPORT: ${POSTGRES_PORT}
+    restart: unless-stopped
+  pandemic-server:
+    build: "./pandemic-server"
+    ports:
+      - "${SERVER_PORT}:${SERVER_PORT}"
+    volumes:
+      - "./pandemic-server/public:/pandemic-server/public"
+    depends_on:
+      - pandemic-db
+    restart: unless-stopped
+    environment:
+      TYPEORM_CONNECTION: "postgres"
+      TYPEORM_HOST: ${POSTGRES_HOST}
+      TYPEORM_PORT: ${POSTGRES_PORT}
+      TYPEORM_USERNAME: ${POSTGRES_USER}
+      TYPEORM_PASSWORD: ${POSTGRES_PASSWORD}
+      TYPEORM_DATABASE: ${POSTGRES_DB}
+      TYPEORM_SCHEMA: "public"
+      TYPEORM_ENTITIES: "./dist/models/**/*.js"
+      TYPEORM_SYNCHRONIZE: "true"
+      TYPEORM_LOGGING: "true"
+      SERVER_MQTT_CLIENT_ID:
+      MQTT_HOST:
+      MQTT_PORT:
+      MQTT_TOPIC:
+      MQTT_USERNAME:
+      MQTT_PASSWORD:

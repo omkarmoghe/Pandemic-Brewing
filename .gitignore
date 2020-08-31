@@ -1,0 +1,5 @@
+**/.env
+**/arduino_secrets.h
+**/node_modules
+pandemic-server/dist/*
+pandemic-db/data/*

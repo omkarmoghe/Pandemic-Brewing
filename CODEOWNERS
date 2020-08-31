@@ -1,0 +1,4 @@
+**/*config* @omkarmoghe
+**/*.conf @omkarmoghe
+docker-compose.yml @omkarmoghe
+**/Dockerfile @omkarmoghe

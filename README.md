@@ -52,6 +52,8 @@ To run the Arduino temperature monitor create a `temperature_monitor/arduino_sec
 
 I highly recommend you get started with Docker; it's how I'm deploying this code. And chances are I may never update the instructions in the [manual build](#Manual-Build) section 😅.
 
+First, make sure an empty directory called `data` exists under `pandemic-db`. If not, make one with `mkdir pandemic-db/data`. This will be mounted as a volume to the Postgres container so that data is persisted on your host machine.
+
 Install Docker desktop for your OS, then run `docker-compose build` to build the server images. Run `docker-compose up` to start the Pandemic server, db, and MQTT Broker.
 
 The `pandemic-mqtt` and `pandemic-db` are build directly from published images and just contain configuration files. You can manually run `docker build` and `docker run` in the `pandemic-server` Node.js project.

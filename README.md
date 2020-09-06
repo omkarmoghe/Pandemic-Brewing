@@ -65,9 +65,9 @@ The `pandemic-mqtt` and `pandemic-db` are build directly from published images a
 
 #### Services
 
-- `pandemic-db`: Postgres @ port `5432`
-- `pandemic-mqtt`: Mosquitto @ port `1883`
-- `pandemic-server`: Express/Node.js @ port `8337`
+- `pandemic-db`: Postgres @ port `POSTGRES_PORT`
+- `pandemic-mqtt`: Mosquitto @ port `MQTT_PORT`
+- `pandemic-server`: Express/Node.js @ port `SERVER_PORT`
 
 ### Manual Build
 

@@ -42,8 +42,8 @@ To run the Arduino temperature monitor create a `temperature_monitor/arduino_sec
 #define MQTT_TOPIC "temperature"
 #define MQTT_USERNAME "pandemic-tech";
 #define PANDEMIC_BATCH_ID 0; // This is the brew Batch that the temperature Events will be attached to.
-#define SECRET_SSID "";
-#define SECRET_WPA2_KEY "";
+#define SSID "";
+#define WPA2_KEY "";
 ```
 
 **Note:** The `MQTT_HOST` defined in `arduino_secrets.h` cannot use the Docker service host (e.g. `pandemic-mqtt`) that the server uses. This will most likely need be a URL (e.g. hosted) or IP address (e.g. local network).

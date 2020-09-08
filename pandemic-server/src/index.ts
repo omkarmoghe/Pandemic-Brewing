@@ -9,6 +9,7 @@ import { setupMqtt } from "./services/mqtt";
 import { getTemperature } from "./controllers/temperatureController";
 import { createBatch, updateBatch, deleteBatch, getBatches } from "./controllers/batchesController";
 import { getEvents, createEvent } from "./controllers/eventsController";
+import { seedTestBatch } from "./models/seeds";
 
 // Setup express
 const app = express();
@@ -16,7 +17,10 @@ const port: number = 8337;
 
 // Connect to the db
 createConnection()
-  .then((_connection) => console.log("TypeORM connected to db."))
+  .then((_connection) => {
+    console.log("TypeORM connected to db.");
+    seedTestBatch();
+  })
   .catch((e) => console.error(`TypeORM unable to connect to db: ${e.message}.`));
 
 // Static files

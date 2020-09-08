@@ -41,7 +41,8 @@ To run the Arduino temperature monitor create a `temperature_monitor/arduino_sec
 #define MQTT_PORT 1883;
 #define MQTT_TOPIC "temperature"
 #define MQTT_USERNAME "pandemic-tech";
-#define PANDEMIC_BATCH_ID 0; // This is the brew Batch that the temperature Events will be attached to.
+// This is the Batch that the temperature Events will be linked to. Batch `0` is seeded for testing.
+#define PANDEMIC_BATCH_ID 0;
 #define SSID "";
 #define WPA2_KEY "";
 ```
@@ -50,7 +51,7 @@ To run the Arduino temperature monitor create a `temperature_monitor/arduino_sec
 
 ### Docker
 
-I highly recommend you get started with Docker; it's how I'm deploying this code. And chances are I may never update the instructions in the [manual build](#Manual-Build) section 😅.
+I highly recommend you get started with Docker; it's how I'm deploying this code.
 
 First, make sure an empty directory called `data` exists under `pandemic-db`. If not, make one:
 ```shell
@@ -68,20 +69,6 @@ The `pandemic-mqtt` and `pandemic-db` are build directly from published images a
 - `pandemic-db`: Postgres @ port `POSTGRES_PORT`
 - `pandemic-mqtt`: Mosquitto @ port `MQTT_PORT`
 - `pandemic-server`: Express/Node.js @ port `SERVER_PORT`
-
-### Manual Build
-
-#### `pandemic-db` (or any relational database)
-
-Instructions TBD.
-
-#### `pandemic-mqtt` (or any MQTT broker)
-
-Instructions TBD.
-
-#### `pandemic-server`
-
-Instructions TBD.
 
 ### MQTT Messages
 

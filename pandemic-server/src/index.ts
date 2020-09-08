@@ -9,7 +9,7 @@ import { setupMqtt } from "./services/mqtt";
 import { getTemperature } from "./controllers/temperatureController";
 import { createBatch, updateBatch, deleteBatch, getBatches } from "./controllers/batchesController";
 import { getEvents, createEvent } from "./controllers/eventsController";
-import { seedTestBatch } from "./models/seeds";
+import { seedTestBatch } from "./helpers/seeds";
 
 // Setup express
 const app = express();

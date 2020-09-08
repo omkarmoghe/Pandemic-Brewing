@@ -1,4 +1,4 @@
-import Batch from "./Batch";
+import Batch from "../models/Batch";
 
 export function seedTestBatch(): Promise<Batch | undefined> {
   return Batch.count().then((count) => {

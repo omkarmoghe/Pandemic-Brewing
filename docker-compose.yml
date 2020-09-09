@@ -5,14 +5,14 @@ services:
     ports:
       - "${MQTT_PORT}:${MQTT_PORT}"
     volumes:
-      - "./pandemic-mqtt/mosquitto.conf:/mosquitto/config/mosquitto.conf"
+      - "./pandemic-mqtt/mosquitto.conf:/mosquitto/config/mosquitto.conf:ro"
     restart: unless-stopped
   pandemic-db:
     image: "postgres:13"
     ports:
       - "${POSTGRES_PORT}:${POSTGRES_PORT}"
     volumes:
-      - "./pandemic-db/postgresql.conf:/etc/postgresql/postgresql.conf"
+      - "./pandemic-db/postgresql.conf:/etc/postgresql/postgresql.conf:ro"
       - "./pandemic-db/data:/var/lib/postgresql/data"
     environment:
       POSTGRES_USER: ${POSTGRES_USER}

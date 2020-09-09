@@ -35,8 +35,8 @@ const char mqtt_username[] = MQTT_USERNAME;
 const char mqtt_password[] = MQTT_PASSWORD;
 bool mqtt_connected = false;
 CooperativeMultitasking tasks;
-MQTTClient *mqtt_client;
-MQTTTopic *mqtt_topic;
+MQTTClient *mqtt_client = nullptr;
+MQTTTopic *mqtt_topic = nullptr;
 
 void setup_wifi() {
   // check for the WiFi module:
@@ -111,9 +111,9 @@ void publish_temperature() {
 void setup() {
   //Initialize serial and wait for port to open.
   Serial.begin(9600);
-  while (!Serial) {
-    ; // wait for serial port to connect. Needed for native USB port only
-  }
+  // while (!Serial) {
+  //   ; // wait for serial port to connect. Needed for native USB port only
+  // }
   Serial.println("Pandemic temperature sensor alive!");
 
   setup_wifi();

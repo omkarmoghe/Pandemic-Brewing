@@ -29,7 +29,7 @@ export const static_path = (filename: string) => path.join(__dirname, "../public
 
 // Index
 app.get("/", (_req, res) => {
-  res.send("🍺");
+  res.send("⚡🍺");
 });
 
 // Temperature graph

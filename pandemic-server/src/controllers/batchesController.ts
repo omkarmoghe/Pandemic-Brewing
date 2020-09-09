@@ -17,8 +17,8 @@ export async function getBatches(req: Request, res: Response): Promise<void> {
 
 export async function createBatch(req: Request, res: Response): Promise<void> {
   const batch = new Batch();
-  batch.name = req.params.name;
-  batch.description  = req.params.description;
+  batch.name = req.body.name;
+  batch.description  = req.body.description;
   await batch.save();
 
   res.status(201);
@@ -29,12 +29,12 @@ export async function updateBatch(req: Request, res: Response): Promise<void> {
   const batch = await Batch.findOne(req.params.id);
 
   if (batch) {
-    if (req.params.name) {
-      batch.name = req.params.name;
+    if (req.body.name) {
+      batch.name = req.body.name;
     }
 
-    if (req.params.description) {
-      batch.description = req.params.description;
+    if (req.body.description) {
+      batch.description = req.body.description;
     }
 
     await batch.save();

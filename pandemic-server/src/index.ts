@@ -43,7 +43,6 @@ app.put("/batches/:id", updateBatch);
 app.delete("/batches/:id", deleteBatch);
 
 // Events
-app.get("/batches/:batchId/events", getEvents);
 app.get("/events", getEvents);
 app.post("/events", createEvent);
 

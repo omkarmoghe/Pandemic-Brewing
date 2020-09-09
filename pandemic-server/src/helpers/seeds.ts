@@ -5,10 +5,11 @@ export function seedTestBatch(): Promise<Batch | undefined> {
     if (count === 0) {
       console.log("Seeding db with test Batch...")
       const batch = new Batch();
-      batch.id = 0;
       batch.name = "TEST Batch";
       batch.description = "This is a test batch for collecting events.";
       return batch.save();
+    } else {
+      Batch.find().then((batches) => console.log(batches));
     }
   });
 }

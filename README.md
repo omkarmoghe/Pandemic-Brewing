@@ -41,8 +41,8 @@ To run the Arduino temperature monitor create a `temperature_monitor/arduino_sec
 #define MQTT_PORT 1883;
 #define MQTT_TOPIC "temperature"
 #define MQTT_USERNAME "pandemic-tech";
-// This is the Batch that the temperature Events will be linked to. Batch `0` is seeded for testing.
-#define PANDEMIC_BATCH_ID 0;
+// This is the Batch that the temperature Events will be linked to. Batch `1` is seeded for testing.
+#define PANDEMIC_BATCH_ID 1;
 #define SSID "";
 #define WPA2_KEY "";
 ```

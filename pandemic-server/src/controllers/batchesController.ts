@@ -5,11 +5,11 @@ import { currentPage } from "../helpers/pagination";
 const PAGE_SIZE = 100;
 
 export async function getBatches(req: Request, res: Response): Promise<void> {
-  const batches = await Batch.createQueryBuilder()
-    .orderBy("id", "DESC")
-    .skip((currentPage(req) - 1) * PAGE_SIZE)
-    .take(PAGE_SIZE)
-    .getMany();
+  const batches = await Batch.find({
+    order: { id: "DESC" },
+    skip: (currentPage(req) - 1) * PAGE_SIZE,
+    take: PAGE_SIZE,
+  });
 
   res.status(200);
   res.json({ batches });

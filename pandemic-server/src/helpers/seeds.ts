@@ -9,7 +9,7 @@ export function seedTestBatch(): Promise<Batch | undefined> {
       batch.description = "This is a test batch for collecting events.";
       return batch.save();
     } else {
-      Batch.find().then((batches) => console.log(batches));
+      console.log("See /batches for a list of Batches.");
     }
   });
 }

@@ -1,12 +1,10 @@
 import express from "express";
-import * as path from "path";
 // TypeORM
 import "reflect-metadata";
 // MQTT
 import { createConnection } from "typeorm";
 import { setupMqtt } from "./services/mqtt";
 // Controllers
-import { getTemperature } from "./controllers/temperatureController";
 import { createBatch, updateBatch, deleteBatch, getBatches } from "./controllers/batchesController";
 import { getEvents, createEvent } from "./controllers/eventsController";
 import { seedTestBatch } from "./helpers/seeds";
@@ -23,17 +21,10 @@ createConnection()
   })
   .catch((e) => console.error(`TypeORM unable to connect to db: ${e.message}.`));
 
-// Static files
-app.use(express.static(path.join(__dirname, "../public")));
-export const static_path = (filename: string) => path.join(__dirname, "../public", filename);
-
 // Index
 app.get("/", (_req, res) => {
   res.send("⚡🍺");
 });
-
-// Temperature graph
-app.get("/temperature", getTemperature);
 
 // Batches
 app.get("/batches", getBatches);

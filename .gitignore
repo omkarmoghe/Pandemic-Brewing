@@ -1,5 +1,12 @@
+**/.DS_Store
 **/.env
 **/arduino_secrets.h
 **/node_modules
-pandemic-server/dist/*
+
+pandemic-client/.env*
+pandemic-client/build
+pandemic-client/npm-debug.log*
+
 pandemic-db/data/
+
+pandemic-server/dist

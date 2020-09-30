@@ -20,6 +20,17 @@ services:
       POSTGRES_DB: ${POSTGRES_DB}
       PGPORT: ${POSTGRES_PORT}
     restart: unless-stopped
+  pandemic-client:
+    build: "./pandemic-client"
+    ports:
+      - "${CLIENT_PORT}:${CLIENT_PORT}"
+    volumes:
+      - "./pandemic-client/public:/pandemic-client/public"
+    restart: unless-stopped
+    environment:
+      CLIENT_PORT:
+    depends_on:
+      - pandemic-server
   pandemic-server:
     build: "./pandemic-server"
     ports:

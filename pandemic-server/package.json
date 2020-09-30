@@ -7,7 +7,6 @@
     "prod": "npm run tsc && node ./dist/index",
     "dev": "npm run tsc && DEBUG=express:* node ./dist/index",
     "tsc": "tsc",
-    "copy-static": "",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Omkar Moghe",
@@ -21,7 +20,7 @@
     "pg": "^8.3.3",
     "pg-promise": "^10.6.1",
     "reflect-metadata": "^0.1.13",
-    "typeorm": "^0.2.25",
+    "typeorm": "0.2.26",
     "typescript": "^4.0.2"
   },
   "devDependencies": {

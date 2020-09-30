@@ -7,7 +7,7 @@ In August 2020 during the COVID-19 pandemic, my housemate and I decided to start
 
 ### ENV Variables / Secrets
 
-#### `pandemic-server`, `pandemic-mqtt`, `pandemic-db`
+#### `pandemic-client`, `pandemic-db`, `pandemic-mqtt`, `pandemic-server`
 
 Create a `.env` file at the project root. Set all of the following variables to run the server, MQTT broker and Postgres DB via `docker-compose`.
 
@@ -68,10 +68,10 @@ The `pandemic-mqtt` and `pandemic-db` are build directly from published images a
 
 #### Services
 
+- `pandemic-client`: React/Node.js @ port `CLIENT_PORT`
 - `pandemic-db`: Postgres @ port `POSTGRES_PORT`
 - `pandemic-mqtt`: Mosquitto @ port `MQTT_PORT`
 - `pandemic-server`: Express/Node.js @ port `SERVER_PORT`
-- `pandemic-client`: React/Node.js @ port `CLIENT_PORT`
 
 ### MQTT Messages
 

@@ -12,20 +12,22 @@ In August 2020 during the COVID-19 pandemic, my housemate and I decided to start
 Create a `.env` file at the project root. Set all of the following variables to run the server, MQTT broker and Postgres DB via `docker-compose`.
 
 ```
-SERVER_PORT="8337"
-SERVER_MQTT_CLIENT_ID="pandemic-server"
+CLIENT_PORT="8338"
 
 MQTT_HOST="mqtt://pandemic-mqtt"
+MQTT_PASSWORD=""
 MQTT_PORT="1883"
 MQTT_TOPIC="temperature"
 MQTT_USERNAME="pandemic-tech"
-MQTT_PASSWORD=""
 
+POSTGRES_DB="pandemic-db"
 POSTGRES_HOST="pandemic-db"
+POSTGRES_PASSWORD=""
 POSTGRES_PORT="5432"
 POSTGRES_USER="pandemic-server"
-POSTGRES_PASSWORD=""
-POSTGRES_DB="pandemic-db"
+
+SERVER_MQTT_CLIENT_ID="pandemic-server"
+SERVER_PORT="8337"
 ```
 
 **Note:** Unfortunately, Mosquitto does not use ENV vars AFAIK, so you also have to update the MQTT `listener` option in `pandemic-mqtt/mosquitto.conf`.
@@ -69,6 +71,7 @@ The `pandemic-mqtt` and `pandemic-db` are build directly from published images a
 - `pandemic-db`: Postgres @ port `POSTGRES_PORT`
 - `pandemic-mqtt`: Mosquitto @ port `MQTT_PORT`
 - `pandemic-server`: Express/Node.js @ port `SERVER_PORT`
+- `pandemic-client`: React/Node.js @ port `CLIENT_PORT`
 
 ### MQTT Messages
 

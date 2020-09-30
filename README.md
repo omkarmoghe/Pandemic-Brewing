@@ -1,4 +1,4 @@
-# ![Pandemic Brewing logo](pandemic-server/public/images/logo.png)
+# ![Pandemic Brewing logo](pandemic-client/public/images/logo.png)
 ⚡️🍺
 
 In August 2020 during the COVID-19 pandemic, my housemate and I decided to start brewing beer.

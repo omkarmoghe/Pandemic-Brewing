@@ -6,5 +6,4 @@ EXPOSE ${SERVER_PORT}
 # Copy config, src, and public.
 COPY ./tsconfig.json ./tsconfig.json
 COPY ./src ./src
-COPY ./public ./public
 CMD ["npm", "run", "prod"]

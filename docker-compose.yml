@@ -23,7 +23,7 @@ services:
   pandemic-client:
     build: "./pandemic-client"
     ports:
-      - "${CLIENT_PORT}:${CLIENT_PORT}"
+      - "5000:5000"
     volumes:
       - "./pandemic-client/public:/pandemic-client/public"
     restart: unless-stopped

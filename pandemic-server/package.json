@@ -12,6 +12,7 @@
   "author": "Omkar Moghe",
   "license": "MIT",
   "dependencies": {
+    "body-parser": "^1.19.0",
     "chart.js": "^2.9.3",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",

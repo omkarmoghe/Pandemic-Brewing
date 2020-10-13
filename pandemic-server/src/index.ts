@@ -1,4 +1,5 @@
 import express from "express";
+import bodyParser from "body-parser"
 // TypeORM
 import "reflect-metadata";
 // MQTT
@@ -11,7 +12,11 @@ import { seedTestBatch } from "./helpers/seeds";
 
 // Setup express
 const app = express();
-const port: number = 8337;
+const port: number = !!process.env.SERVER_PORT ? parseInt(process.env.SERVER_PORT) : 8337
+
+// Middleware
+app.use(bodyParser.urlencoded({ extended: true })); // use qs over querystring
+app.use(bodyParser.json());
 
 // Connect to the db
 createConnection()
